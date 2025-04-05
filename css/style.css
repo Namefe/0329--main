@@ -1,0 +1,1506 @@
+body{
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+    overflow-x: hidden;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+.pc { display:block; }
+.mobile {display:none; }
+
+.Header-1{
+    position: relative;
+    z-index: 3000;
+    top:0;
+    width:100%;
+    height:50px;
+}
+.container{
+   position: absolute;
+   z-index: 10;
+   top:0;
+   right:0;
+   left:0;
+   display: block;
+   height:100%;
+   background-color: #ffbbcf;
+}
+.banner{
+    position: relative;
+    text-align: center;
+    top:10px;
+}
+.hidden{
+    font-weight: 700;
+    color:#000;
+    font-size: 20px;
+    font-size:0;
+    line-height: 0;
+    visibility: hidden;
+    overflow: hidden;
+    padding:0;
+
+}
+.hiddenimg{
+    height:32px;
+    margin-right: 5px;
+    margin-left:5px ;
+}
+.hiddenlogo{
+    height:32px;
+}
+.Header-2{
+    position: fixed;
+    z-index: 3000;
+    right:0;
+    left:0;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    padding:26px 18px 0 20px;
+    top:30px;
+}
+
+.appTitle{
+    width:150px;
+    height:32px;
+    transition-delay: 1s;
+    transition-duration: .5s;
+}
+.HeaderMainLink{
+    display:block;
+    height:100%;
+    background-image: url('/images/netmarble_negative.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.netlogo{
+    width:100px;
+    height:90px;
+}
+.wrapper{
+    width:50px;
+    height: 50px;
+
+}
+#mailNavigationBtn{
+  display: block;
+  width:100%;
+  height:100%;
+  background-image: url(https://ncm-static.nexon.com/_next/static/media/icon-menu-hamburger-black.313a90d2.svg);
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+button{
+    padding:0;
+    cursor:pointer;
+    border:0;
+    background: transparent;
+}
+.navigation{
+    list-style:none;
+    display: flex;
+    align-items: center;
+}
+
+.btn{
+    width:34px;
+    height:34px;
+    background-color: black;
+    border:none;
+    display: block;
+} 
+.navigationContainer{
+   position: fixed;
+   z-index: 30;
+   right:24px;
+   bottom:100px;
+}  
+.NavName{
+    font-size: 12px;
+    line-height: 28px;
+    position: absolute;
+    right:40px;
+    visibility: hidden;
+    height: 28px;
+    padding:0 10px;
+    white-space: nowrap;
+    color:#fff;
+    border:1px solid hsla(0,0%,47%,.22);
+    border-radius: 3px;
+    background-color: #191919;
+}
+#btn1{
+    background-image: url(https://ncm-static.nexon.com/_next/static/media/home.153d909d.svg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+#btn2{
+    background-image: url(https://ncm-static.nexon.com/_next/static/media/highlight.2faa8d0f.svg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+#btn3{
+    background-image: url(https://ncm-static.nexon.com/_next/static/media/play-route.42ea3d30.svg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+#btn4{
+    background-image: url(https://ncm-static.nexon.com/_next/static/media/invite-you.fdee23ec.svg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+.headernavigation{
+    position: fixed;
+    z-index: 3000;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    display:none;
+    overflow: auto;
+    justify-content: space-between;
+    margin-top:52px;
+    background-color: #282728;
+    opacity: 1;
+}
+.headermainlist{
+    display: flex;
+    flex-direction: column;
+}
+.headernavigationcontainer{
+    margin-left:70px;
+}
+.headermainmenu{
+    display: flex;
+    color:#fff;
+}
+.headermainmenuwrapper1{
+    margin-right: 18px;
+}
+.headermenuwrapper{
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+}
+.headermainsup{
+    font-size: 20px;
+    display: block;
+    letter-spacing: -1px;
+    color:#fff;
+}
+.headermaintitle{
+    display: block;
+    overflow: hidden;
+    margin-top: 6px;
+    font-size: 50px;
+}
+.headersublist{
+position: relative;
+display: flex;
+flex-direction: column;  
+margin-top:115px;
+}
+.headermainlist li{
+    margin-top: 70px;
+}
+.headersubtitle{
+    font-size: 27px;
+    display: flex;
+    align-items: center;
+    color:#fff;
+}
+.closebtn{
+    position: absolute;
+    top:47px;
+    right: 47px;
+}
+.header-iconclosebtn{
+    display: inline-block;
+    width:25px;
+    height:25px;
+    background-image: url(https://ncm-static.nexon.com/_next/static/media/icon-menu-close.a9aee1c0.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.headermaintitle{
+    display: inline-block;
+    position: relative;
+}
+span.headermaintitle::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: #fff;
+    transform: scaleX(0);    
+    transform-origin: left;     
+    transition: transform 0.3s ease;    
+}
+span.headermaintitle:hover::after{
+    transform:scaleX(1);
+}
+li::marker{
+    content: none;
+}
+
+/*----------- Section1 시작 -------------------*/
+.MainsectionContainer{
+    display:flex;
+    overflow: hidden;
+    align-items: center;
+    box-sizing: border-box;
+    width:100%;
+    height:100%;
+    padding:15.7% 0;
+    background-color: #191818;
+    position: relative;
+}
+.mainsvg{
+display: inline-block;
+width:1200px;
+height: 400px;
+transform: scale(1.5);
+margin-left:500px;
+}
+.MainsectionContainer::before{
+    position: fixed;
+    top:-100%;
+    left:-50%;
+    width:300%;
+    height:300%;
+    content:"";
+    background-image: url(https://ncm-static.nexon.com/_next/static/media/img_noise.f6b284ca.png);
+    opacity: 0.6;
+}
+.sectionhome{
+    width:100%;
+    height:100vh;
+    position: relative;
+}
+.Mainsectiion{
+    position: relative;
+    width:100%;
+}
+
+.pinkbin{
+    position: absolute;
+    top:44%;
+    left:50%;
+}
+.pinkbin img{
+    width:100px;
+    height:100px;
+}
+.pinkbin img:hover{
+    transform: scale(1.5);
+    transition: 1s ease-in;
+}
+@keyframes pinkbinroll {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+};
+.iconDown{
+    position: absolute;
+    bottom:200px;
+    left:50%;
+    display: inline-block;
+    width:34px;
+    height:47px;
+    transform:translate3d(-50%,0,0);
+    background-image: url(https://ncm-static.nexon.com/_next/static/media/icon-arrow-down.4195d3c7.png);
+    background-size: cover;
+    animation-name: bouncingArrowDown;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+}
+
+@keyframes bouncingArrowDown {
+    0% {
+      transform: translate3d(-50%, 20%, 0);
+    }
+    50% {
+      transform: translate3d(-50%, -10%, 0);
+    }
+    100% {
+      transform: translate3d(-50%, 20%, 0);
+    }
+  }
+/*------------------Section2 시작 ----------------------------------------------*/
+#highlight{
+    width:100%;
+}
+.sectionList{
+    overflow: hidden;
+    border-top: 1px solid #aaaaab;
+    margin:0;
+    padding:0;
+}
+.collection1{
+    font-weight: 400;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    cursor:pointer;
+    text-align: center;
+    white-space: nowrap;
+    color:#282728;
+    border-bottom:1px solid #aaaaab;
+    font-size: 48px;
+    height:105px
+}
+.innercollection1{
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.text1{
+    font-weight: 400;
+    letter-spacing: -.88px;
+}
+.sup1{
+    font-size:12px;
+    margin-left:8px;
+    letter-spacing: -.24px;
+}
+.highlightHover{
+    position: absolute;
+    top:0;
+    left:0;
+    overflow: hidden;
+    justify-content: left;
+    align-items: center;
+    width:100%;
+    height:106px;  
+    opacity: 0;
+    transform: translateY(100%);
+    transition: 0.5s ease-out;
+}
+.highlightHover p, .highlightHover img{
+    animation: move 10s linear infinite; 
+    margin: 0 10px; 
+}
+.collection1:hover .highlightHover{
+    transform: translateY(0%);
+    visibility: visible;
+    opacity: 1;
+}
+.highlightHover p{
+    display: inline-block;
+    font-size: 30px;
+position: relative;
+top:-20px;
+font-weight: 900;
+}
+.highlightHover img{
+    width:150px;
+    height:70px;
+    border-radius: 30px;
+    margin-top: 20px;
+}
+.illustLogo{
+    position: relative;
+    height:150px;
+    padding:80px;
+    margin:30px;
+}
+.illimg{
+    width:200px;
+    height:200px;
+}
+.illustLogoroll{
+    animation-name: pinkbinroll;
+    animation-duration: 6s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    position: absolute;
+    top:165px;
+    left:80px;
+}
+.CollectHighlight{
+    display: flex;
+    justify-content: center;
+}
+.stopimg{
+   width:100px;
+   height:100px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -35%)
+}
+.highlightHover:hover .highlightHover img{
+    animation: move 5s linear infinite;
+}
+
+@keyframes move {
+    0% {
+      transform: translateX(0); 
+      opacity: 1; 
+    }
+    50% {
+      transform: translateX(-50vw);
+      opacity: 1; 
+    }
+    100% {
+      transform: translateX(-100vw); 
+      opacity: 1; 
+    }
+  }
+
+/*------------------------------- Section3 시작   ---------------------------------------------*/
+.pc{
+    background-image: url(https://ncm-static.nexon.com/_next/static/media/intro-background-web.a051d03c.svg);
+    background-size: cover;
+    height:auto;
+    overflow-y: auto;
+}
+.mobile{
+    position: relative;
+    background-image: url(https://ncm-static.nexon.com/_next/static/media/intro-background-web.a051d03c.svg);
+    background-size: cover;
+    height:auto;
+
+}
+
+.playlist-anchor{
+    top:0;
+    width: 100%;
+    height:100%;
+}
+.playlistwrapper{
+    display: flex;
+    top:52px;
+    width:100%;
+    height:100%;
+}
+.playlist-container{
+    position: absolute;
+    display: flex;
+    overflow: hidden;
+    box-sizing: border-box;
+    width:100%;
+    height:100%;
+    margin-top: 100px;
+}
+#playlist .playlist-title{
+    position: relative;
+}
+#playlist .playlisttitle1{
+    width:800px;
+    margin-left:100px;
+}
+#playlist .playlisttitle2{
+   line-height: 1.69;
+   position: absolute;
+   right:0;
+   top:160px;
+   letter-spacing: -.61px;
+   color:#d8d8d8;
+   transform:translateY(-17px);
+}
+#playlist .playliststicker-container{
+    display: flex;
+    width:fit-content;
+    position: relative;
+    left:300px; 
+}
+.playlist-image{
+    margin-top:300px;
+    margin-left:20px;
+}
+#playlist .playliststicker-wrapper{
+    position: relative;
+    width:fit-content;
+    height: fit-content;
+    padding:1px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
+}
+#playlist .playliststicker-wrapper.on {
+    opacity: 1;
+    transform: translateY(0);
+  }
+#playlist .playlist-scrollArea{
+    position: relative;
+    margin:600px
+}
+.playliststicker-wrapper .img1{
+    transform: rotate(30deg);
+    position: absolute;
+    top:0;
+    left:0;
+}
+.playliststicker-wrapper .img1:hover{
+    transition:all 2s ease-in-out;
+    transform:rotate(360deg)
+}
+.playliststicker-wrapper .img2{
+    transform: rotate(-30deg);
+    position: absolute;
+    top:300px;
+    left:200px;   
+}
+.playliststicker-wrapper .img2:hover{
+    transition:all 2s ease-in-out;
+    transform:rotate(360deg)
+}
+.playliststicker-wrapper .img3{
+    transform: rotate(30deg);
+    position: absolute;
+    top:0;
+    left:400px;
+}
+.playliststicker-wrapper .img3:hover{
+    transition:all 2s ease-in-out;
+    transform:rotate(360deg)
+}
+.playliststicker-wrapper .img4{
+    transform: rotate(-30deg);
+    position: absolute;
+    top:300px;
+    left:700px;
+}
+.playliststicker-wrapper .img4:hover{
+    transition:all 2s ease-in-out;
+    transform:rotate(360deg)
+}
+.playliststicker-wrapper .img5{
+    transform: rotate(30deg);
+    position: absolute;
+    top:0;
+    left:900px;
+}
+.playliststicker-wrapper .img5:hover{
+    transition:all 2s ease-in-out;
+    transform:rotate(360deg)
+}
+.playliststicker-wrapper .img6{
+    transform: rotate(-30deg);
+    position: absolute;
+    top:300px;
+    left:1200px;
+}
+.playliststicker-wrapper .img6:hover{
+    transition:all 2s ease-in-out;
+    transform:rotate(360deg)
+}
+.playlist-buttonborder{
+    width:300px;
+    height:100px;
+    background-image:url(https://ncm-static.nexon.com/_next/static/media/button-playlist-route.c91ac529.svg);
+    background-repeat: no-repeat;
+    position: sticky;
+}
+.playlist-buttontext{
+    font-weight: 600;
+    font-size: 18px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-100%,-80%);
+}
+.buttonsticker{
+    position: relative;
+    top:800px;
+    left:750px;
+}
+
+
+/*--------------   Section4 시작        ---------------------------------------*/
+
+#inviteYou{
+    padding-top: 170px;
+    padding-bottom:1500px;
+    background-color: #232423;
+}
+.inviteWrapper{
+  right:66.4px;
+  position: absolute;
+}
+.invite-anchor{
+    width:100%;
+    height:100%;
+}
+.inviteBackgroundText{
+    top:50px;
+    right:0;
+    left:0;
+    text-align: right;
+    position: sticky;
+}
+.inviteContainer{
+    position: relative;
+    display: flex;
+}
+.inviteFadein{
+    font-weight: 500;
+    line-height: 1.75;
+    position: relative;
+    vertical-align: top;
+    letter-spacing: -.72px;
+    color:#fff;
+    float:left;
+}
+.IconInvite{
+    width:44.6vw;
+}
+.inviteCursor{
+    display: flex;
+    align-items: flex-end;
+}
+.cursor{
+    width:7.97vw;
+    margin-bottom: 1.61px;
+}
+.RollingPoster{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin: 60% auto 0;
+}
+.poster1{
+    position: relative;
+    left:160px;
+    margin-top: -500px;
+}
+.poster1 a{
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    overflow: hidden;
+}
+.poster1 a span{
+    font-size:15px;
+    margin-top: 15px;
+    color:#fff;
+    line-height: 1.5;
+    z-index: 30;
+}
+.poster1 img{
+    width:500px;
+    height:300px;
+    transition: 1s;
+}
+.poster1 img:hover{
+    transform: scale(1.2);
+    transition: 1s;
+}
+.poster2 img:hover{
+    transform: scale(1.2);
+    transition: 1s;
+}
+.poster4 img:hover{
+    transform: scale(1.2);
+    transition: 1s;
+}
+.poster3 img:hover{
+    transform: scale(1.2);
+    transition: 1s;
+}
+.poster2{
+    position: relative;
+    left:40px;
+    margin-top:100px;
+}
+.poster2 a{
+    display: flex;
+    text-decoration: none;
+    overflow: hidden;
+}
+.poster2 a span{
+    font-size:15px;
+    margin-left: 20px;
+    color:#fff;
+    z-index: 30;
+}
+.poster2 img{
+    width:500px;
+    height:300px;
+    transition: 1s;
+}
+.poster3{
+   position: absolute;
+   top:57vw;
+   left:50%;
+   transform: translateX(-50%);
+   overflow: hidden;
+}
+
+.poster3 img{
+    transition: 1s;
+}
+.poster3 a span{
+    line-height:1.5;
+    display: inline-block;
+    color:#fff;
+    font-size:13px;
+    margin-top:10px;
+    left:-10px;
+    z-index: 30;
+}
+.poster4{
+position: relative;
+margin-top: -500px;
+margin-right:100px;
+}
+.poster4 a{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.poster4 span{
+    display: inline-block;
+    font-size: 15px;
+    line-height: 1.47;
+    color:#fff;
+    bottom:350px;
+    left:0px;
+}
+.poster4 img{
+    width:300px;
+    height:500px;
+    transition: 1s;
+}
+/*--------------    Footer 시작                 ------------------------------------------------------------------*/
+#footer{
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 0 50px 30px;
+    color:#d8d8d8;
+    background-color: #232423;
+}
+
+.morethingText{
+    font-size:40px;
+    display: block;
+    line-height: 1.37;
+    letter-spacing: -2.33px;
+}
+.morething-icon{
+    margin-top:27px;
+    width:23px;
+    margin-left:50px;
+}
+.footer-interestingList{
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -.42px;
+    list-style: none;
+}
+.footer-interestingItem{
+    margin-top:14px;
+}
+.inter{
+    padding-bottom:6px;
+    color:#d8d8d8;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+}
+.footer-interestingSocial{
+    display: flex;
+}
+.footer-interestingSocialList{
+    overflow: hidden;
+}
+.inter2{
+    display: inline-block;
+}
+.logo{
+    display:block;
+    width:50px;
+    height:50px;
+}
+.footer-information{
+    line-height:1.55;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom:30px;
+
+}
+.footer-information p{
+    font-size:11px;
+}
+.footer-information p:nth-child(2){
+    letter-spacing: -.9px;
+}
+.footer-address{
+    margin-top:14px;
+    font-size:11px;
+    font-style:normal;
+}
+.footer-copyright{
+    margin-top: 14px;
+    font-size:11px;
+    font-style:normal;
+}
+.footer-interestingSocialList:hover{
+    transform: translateX(10px) rotate(360deg);
+}
+
+.inter::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: #fff;
+    transform: scaleX(0);    
+    transform-origin: left;     
+    transition: transform 0.5s ease;  
+    border-radius: 10%;  
+}
+.inter:hover::after{
+    transform:scaleX(1);
+}
+/*------------------------------------------------- 반응형 CSS ----------------------------------------------*/
+@media(max-width:650px){
+    .banner{
+        width:230px;
+    }
+    .hiddenimg{
+    position: relative;
+       margin-left:60px;
+    }
+
+
+}
+@media(max-width:766px){
+    .hiddenlogo{
+        display: none;
+    }
+    .banner{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+@media (max-width:767px){
+.navigationContainer{
+    bottom:0;
+}
+.netmarble{
+    width:100%;
+}
+
+.banner{
+    width:250px;
+}
+#highlight{
+    padding-bottom: 134px;
+}
+.hiddenimg{
+    margin-left:40px;
+}
+.collection1{
+    font-size: 32px;
+    height:70px;
+}
+.stopimg{
+    width:100px;
+    height:100px;
+}
+.text1{
+    font-size: 25px;
+}
+.sup1{
+    font-size: 8px;
+}
+.Header-2{
+    padding-top: 30px;
+}
+.Header-1{
+    position: fixed;
+}
+.MainsectionContainer{
+    align-items: normal;
+    justify-content: center;
+    padding: 52px 6.94vw 0 06.11vw
+}
+.Mainsectiion{
+    margin-top: -50px;
+    margin-bottom: 800px;
+    height:fit-content;
+
+}
+.mainsvg {
+    scale:0.3;
+    margin-left:-350px;
+    margin-top:160px;
+}
+.pinkbin{
+position: absolute;
+top:350px;
+left:200px;
+}
+.pinkbin img{
+    width:50px;
+    height:50px;
+}
+.iconDown{
+    position: absolute;
+    bottom:10%;
+    left:50%;
+}
+.playlist-container{
+    justify-content: center;
+    padding-top: 80px;
+}
+.inviteBackgroundText{
+    padding-top: 80px;
+}
+.RollingPoster{
+    width:100vw;
+    padding: 0 5.55vw;
+}
+.poster1{
+    align-self: flex-start;
+    margin-top:20px;
+    left:5px;
+}
+.poster1 img{
+    width:200px;
+    height:150px;
+}
+.poster2 img{
+    width:200px;
+    height:150px;
+}
+.poster4 img{
+    width:200px;
+    height:150px;
+}
+.poster2{
+    align-self: flex-end;
+    order:3;
+    margin-top: 100px;
+}
+.poster4{
+    align-self: flex-end;
+    left:240px;
+    top:-200px;
+}
+.poster4 a span{
+    position: absolute;
+    bottom:-50px;
+    left:0;
+}
+.poster3{
+    order:4;
+    margin-top: 700px;
+}
+.poster3 img{
+    width:500px;
+    height:450px
+}
+.poster3 span{
+    font-size: 12px;
+    margin-top: 16px;
+}
+#footer{
+    flex-direction: column;
+}
+.footer-interesting{
+    flex-direction: column;
+    margin-bottom: 34px;
+}
+.footer-interestingList{
+    padding-bottom: 31px;
+}
+.footer-interestingSocial{
+    margin-left: -14px;
+}
+.footer-information{
+    display: flex;
+}
+#playlist .playlisttitle1{
+    width:400px;
+    max-width:474px;
+    margin-left: 0;
+}
+#playlist .playlisttitle2{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 100px;
+    margin-right: -2.78vw;
+    font-size:12px;
+}
+.playlist-routecontainer{
+    position: absolute;
+    width:300px;
+    top:-100px;  
+    left:400px;
+}
+.playlist-buttonborder{
+    position: relative;
+    top:530px;
+    left:220px;
+    width:300px;
+    height:100px;
+}
+#playlist .playliststicker-container{
+    display: block;
+    width:100%;
+}
+.playliststicker-wrapper:first-child{
+    top:0;
+    right:172px;
+}
+.playliststicker-wrapper:nth-child(2){
+    display: flex;
+    justify-content: flex-end;
+    top:-65px;
+    left:-150px;
+}
+.playliststicker-wrapper:nth-child(3){
+    right:555px;
+    top:500px;
+}
+.playliststicker-wrapper{
+    width:100px;
+    height:100px;
+}
+.playlist-stickerWrapper{
+    width:100vw;
+    padding:50px 0;
+}
+.playlistwrapper{
+    height:2000px;
+}
+#playlist .playlist-scrollArea{
+    left:-1000px;
+}
+.playliststicker-wrapper:nth-child(4){
+    display: flex;
+    justify-content: flex-end;
+    top:500px;
+    left:-650px;
+}
+.playliststicker-wrapper:nth-child(5){
+    top:1000px;
+    left:-1050px;
+}
+.playliststicker-wrapper:nth-child(6){
+    display: flex;
+    justify-content: flex-end;
+    top:1000px;
+    left:-1200px;
+}
+.playliststicker-wrapper .img1{
+    position: absolute;
+    top:400px;
+    left:0;
+    scale:0.7;
+}
+.playliststicker-wrapper .img2{
+    position: absolute;
+    top:700px;
+    right:0;
+    scale:0.7;
+
+}
+.playliststicker-wrapper .img3{
+    position: absolute;
+    top:850px;
+    left:0px;
+    scale:0.7
+}
+.playliststicker-wrapper .img4{
+    position: absolute;
+    top:1050px;
+    left:250px;
+    scale:0.7;
+}
+.playliststicker-wrapper .img5{
+    position: absolute;
+    top:1400px;
+    left:50px;
+    scale:0.7;
+
+}
+.playliststicker-wrapper .img6{
+    position: absolute;
+    top:1700px;
+    left:280px;
+    scale:0.7;
+
+}
+
+.inviteWrapper{
+    right:110px;
+    scale:1.3;
+}
+
+#inviteYou{
+height:1000px;
+}
+.highlightHover img{
+    width:100px;
+    height:50px;
+    margin-top: 12px;
+}
+.highlightHover p{
+    font-size: 20px;
+}
+.container{
+    width:100%;
+}
+.pc{
+    display: none;
+}
+.mobile{
+    display: block;
+}
+.playlisttitle2{
+    color:white;
+    position: absolute;
+    top:120px;
+    left:320px;
+    font-size: 10px;
+}
+.inviteFadein{
+    font-size: 8px;
+}
+}
+@media(min-width:563px) and (max-width:767px){
+    .poster4{
+        position: absolute;
+        top:300px;
+    }
+    .poster2{
+        position: absolute;
+        top:60px;
+        left:320px;
+    }
+    .poster2 img{
+        display: block;
+    }
+    .poster2 a span{
+        display: block;
+        }
+    .playlisttitle2{
+        color:#fff;
+        position: absolute;
+        top:5%;
+        left:60%;
+    }
+}
+
+@media(min-width:768px) and (max-width:1800px){
+    .mainsvg{
+        scale:0.5;
+        margin-left:-500px;
+    }
+    .poster1{
+        position: absolute;
+        top:70px;
+        left:80px;
+    }
+    .poster1 img{
+        width:300px;
+        height:200px;
+    }
+    .poster2{
+        position: absolute;
+        top:-30px;
+        left:50%;
+        transform: translateX(-50%);
+    }
+    .poster2 img{
+        width:300px;
+        height:200px;
+    }
+    .poster4{
+        position: relative;
+        top:300px;
+        left:1000px;
+    }
+    .poster4 img{
+        width:300px;
+        height:200px;
+    }
+    .poster3 img{
+        width:100%;
+    }
+    .pinkbin{
+        position: absolute;
+        top:200px;
+        left:700px;
+    }
+    .pinkbin img{
+        width:70px;
+        height:70px;
+    }
+    .pc{
+        display:none;
+    }
+    .mobile{
+        display: block;
+    }
+
+}
+@media(min-width:768px) and (max-width:1199px){
+
+    .banner:nth-child(5){
+        display: none;
+    }
+    .banner:nth-child(6){
+        display: none;
+    }
+    .banner{
+        width:250px;
+    }
+    .hiddenimg{
+        margin-left: 35px;
+    }
+    .mainsvg{
+        margin-left:-130px;
+    }
+    .iconDown{
+        bottom:100px;
+    }
+    .pinkbin{
+        position: absolute;
+        top:200px;
+        left:400px;
+    }
+    .playlist-mobile{
+        position: relative;
+    }
+    .playlist-container{
+        position: relative;
+        height: 1000px;
+    }
+    .playliststicker-wrapper .img1{
+        position: absolute;
+        top:400px;
+        left:600px;
+    }
+    .playliststicker-wrapper .img2{
+        position: absolute;
+        top:700px;
+        left:800px;
+    }
+    .playliststicker-wrapper .img3{
+        position: absolute;
+        top:400px;
+        left:1100px;
+    }
+    .playliststicker-wrapper .img4{
+        position: absolute;
+        top:700px;
+        left:1300px;
+    }
+    .playliststicker-wrapper .img5{
+        position: absolute;
+        top:400px;
+        left:1600px;
+    }
+    .playliststicker-wrapper .img6{
+        position: absolute;
+        top:700px;
+        left:1800px;
+    }
+    .playlisttitle1{
+        scale:1.6;
+        margin-top:50px;
+        margin-left: 100px;
+    }
+    .playlisttitle2{
+        color: #fff;
+        position: absolute;
+        top:100px;
+        left:320px;
+    }
+    .playlist-image{
+        margin-top: 50px;
+    }
+    .playlist-buttonborder{
+        bottom:410px;
+        left:250px;
+    }
+    .poster1{
+        margin-left:50px;
+    }
+    .poster1 img{
+        width:300px;
+        height:200px;
+    }
+    .poster2 img{
+        width:300px;
+        height:200px;
+    }
+    .poster4 img{
+        width:300px;
+        height:200px;
+    }
+    .poster4 span{
+        position: absolute;
+        top:210px;
+        left:0;
+    }
+}
+@media(min-width:1200px) and (max-width:1499px){
+    .banner:nth-child(5){
+        display: none;
+    }
+    .banner:nth-child(6){
+        display: none;
+    } 
+    .mainsvg{
+        scale:0.7;
+        margin-left:170px;
+    }
+    .iconDown{
+        bottom:100px;
+    }
+    .playlist-mobile{
+        position: relative;
+    }
+    .playlist-container{
+        position: relative;
+        height: 1000px;
+    }
+    .playliststicker-wrapper .img1{
+        position: absolute;
+        top:400px;
+        left:600px;
+    }
+    .playliststicker-wrapper .img2{
+        position: absolute;
+        top:700px;
+        left:800px;
+    }
+    .playliststicker-wrapper .img3{
+        position: absolute;
+        top:400px;
+        left:1100px;
+    }
+    .playliststicker-wrapper .img4{
+        position: absolute;
+        top:700px;
+        left:1300px;
+    }
+    .playliststicker-wrapper .img5{
+        position: absolute;
+        top:400px;
+        left:1600px;
+    }
+    .playliststicker-wrapper .img6{
+        position: absolute;
+        top:700px;
+        left:1800px;
+    }
+    .playlisttitle1{
+        scale:1.6;
+        margin-top:50px;
+        margin-left: 100px;
+    }
+    .playlisttitle2{
+        color: #fff;
+        position: absolute;
+        top:100px;
+        left:320px;
+    }
+    .playlist-image{
+        margin-top: 50px;
+    }
+    .playlist-buttonborder{
+        bottom:410px;
+        left:250px;
+    }
+}
+
+@media(min-width:1500px) and (max-width:1799px){
+    .banner:nth-child(6){
+        display: none;
+    } 
+    .mainsvg{
+        scale:0.8;
+        margin-left:190px;
+    }
+    .iconDown{
+        bottom:100px;
+    }
+    .playlist-mobile{
+        position: relative;
+    }
+    .playlist-container{
+        position: relative;
+        height: 1000px;
+    }
+    .playliststicker-wrapper .img1{
+        position: absolute;
+        top:400px;
+        left:600px;
+    }
+    .playliststicker-wrapper .img2{
+        position: absolute;
+        top:700px;
+        left:800px;
+    }
+    .playliststicker-wrapper .img3{
+        position: absolute;
+        top:400px;
+        left:1100px;
+    }
+    .playliststicker-wrapper .img4{
+        position: absolute;
+        top:700px;
+        left:1300px;
+    }
+    .playliststicker-wrapper .img5{
+        position: absolute;
+        top:400px;
+        left:1600px;
+    }
+    .playliststicker-wrapper .img6{
+        position: absolute;
+        top:700px;
+        left:1800px;
+    }
+    .playlisttitle1{
+        scale:1.6;
+        margin-top:50px;
+        margin-left: 100px;
+    }
+    .playlisttitle2{
+        color: #fff;
+        position: absolute;
+        top:100px;
+        left:320px;
+    }
+    .playlist-image{
+        margin-top: 50px;
+    }
+    .playlist-buttonborder{
+        bottom:410px;
+        left:250px;
+    }
+
+}

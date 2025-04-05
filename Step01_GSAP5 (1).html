@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step01_GSAP5.html</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        body {font-family:'Noto Sans KR', sans-serif;font-size:16px;line-height:1.6;margin:0;}
+        .wrap { position:relative; margin:0 auto; overflow:hidden; background: #000;color:#fff;}
+        .visual {padding-top:150px;height:100vh;box-sizing: border-box;}
+        .visual .inner {width:70%;margin:0 auto;display:flex;justify-content: space-between;}
+        .visual .inner .textBox {width:60%;line-height: 1.4;}
+        .visual .inner .textBox .title {font-size:180px;}
+        .visual .inner .textBox .title .en2 {font-size:220px}
+        .visual .inner .textBox .subTitle {font-size:30px;margin:30px 0;}
+        .visual .inner .aniBox {width:350px;height:350px;position:relative;margin-top: 300px;}
+        .visual .inner .aniBox img {width:100%;position: absolute;display: inline-block;}
+        .visual .inner .aniBox img.spin {left:0;top:0;animation-name:spin;animation-duration: 10s;animation-timing-function: linear;animation-iteration-count: infinite;}
+
+        @keyframes spin {
+            0% {transform: rotate(0deg);}
+            100% {transform: rotate(360deg);}
+        }
+        .visual .inner .aniBox img.arrow {left:50%;top:50%;transform: translate(-50%,-50%) rotate(180deg);width:20%;}
+
+        .visual.motion .inner .textBox {transform: translate3d(0, 0, 0);}
+        .visual.motion .inner .textBox p {animation-name:textAni3;animation-duration: 1s;}
+        @keyframes textAni3{
+            0% {opacity:0;}
+            40% {opacity:0;transform: translate3d(0,50px,0);}
+        }
+
+        .work {height:100vh;border:1px solid red;position: relative;}
+        .work ul {display: flex;padding:3% 30%;box-sizing: border-box;}
+        .work ul li {width:700px;padding:100px;box-sizing: border-box;flex-shrink: 0 !important;} 
+        /* padding:100px; -> li 마다 마진이 아닌 패딩으로 간격을 준 이유는 가로스크롤 길이가 li의 높이만 인식해서
+        안쪽여백인 패딩은 포함이 되도 바깥여백인 마진은 포함이 안된다.
+        만약 마진으로 li의 간격을 띄어준다면 중간에 리스트가 잘린 상태로 스크롤이 끝나버린다.
+        
+        가로스크롤 때문에 padding -> margin으로 주면 li 길이에 포함되지 않아 list가 짤림 */
+        .work ul li a {display:block;width:100%;position: relative;}
+        .work ul li a .imgBox {position: relative;}
+        .work ul li a .imgBox img {width:100%;}
+        .work ul li a .textBox {position: absolute;left:0;bottom: 10%;text-shadow: 2px 2px 10px rgba(0,0,0,0.3);}
+        .work ul li a .textBox .title { font-size:60px;}
+        .work ul li a .textBox .text { font-size:20px;padding-left: 5px;}
+
+        .work ul li a .imgBox:before {content: '';width:140px;height: 140px;border-radius: 100%;border: 1px solid #fff;background: url(img/readMore2.png) no-repeat center/30px;position: absolute;left: 50%;top: 50%;transform: translate(-50%,-50%) rotate(45deg);z-index: 2;transition: all .3s;}
+        .work ul li a .imgBox:after {content: '';width: 0%;height: 0%;border-radius: 100%;background: #fff url(img/readMore3.png) no-repeat center/130px;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);z-index: 1;animation-name:spin2;animation-duration: 10s;animation-timing-function: linear;animation-iteration-count: infinite;}
+        .work ul li a .imgBox:hover img {filter: brightness(50%); transition: .3s;}
+        .work ul li a .imgBox:hover::before {opacity: 1;}
+        .work ul li a .imgBox:hover::after {opacity: 1;width: 140px;height: 140px;}
+
+        @keyframes spin2 {
+            0% {transform: translate(-50%,-50%) rotate(0deg);}
+            100% {transform: translate(-50%,-50%) rotate(360deg);}
+        }
+
+        .work ul li a .imgBox {clip-path:inset(30%);}
+        .work ul li a .textBox {opacity: 0;}
+
+        .work .counter {position: absolute;font-size:50px;right:8%;bottom: 8%;letter-spacing: -3px;color:#fff;}
+        .work .counter .now {font-size: 42px;}
+        .work ul li a .num {width: 100%;}
+
+        .con03 {width: 100%;height: 100vh;display: flex;justify-content: center;align-items: center;}
+        .con03 h2 {font-size:68px;color:#fff;text-transform: uppercase;}
+
+
+        @media screen and (max-width:1300px) {
+            .visual {padding-top:120px;}
+            .visual .inner {width:90%;}
+            .visual .inner .textBox {transform: translate(0,0);}
+
+            .work ul {padding:3% 20%;}
+        }
+
+        @media screen and (max-width:1024px) {
+            .visual .inner .textBox {width: 50%;}
+            .visual .inner .textBox .title {font-size:20vw;}
+            .visual .inner .textBox .title .en2 {font-size:23vw;}
+            .visual .inner .aniBox {bottom:10%;}
+            .work { height:auto;}
+            .work ul {padding:0% 5%;justify-content:space-between;flex-wrap:wrap;}
+            .work ul li {padding:0;width:45%;margin-top:150px;}
+            .work ul li:nth-child(2n) {margin-top:0;}
+            .work ul li a .imgBox {clip-path: none;}
+            .work ul li a .textBox {opacity:1;position:static;}
+            .work ul li a .textBox .title {font-size: 35px;}
+            .work ul li a .textBox .text {font-size:16px;}
+            .work ul li a .imgBox:before, .work ul li a .imgBox:after {display:none}
+            .work ul li a:hover .imgBox img {filter: brightness(100%);}
+        }
+
+        @media screen and (max-width:800px) {
+            .visual .inner .textBox .title .en2 {margin-left: -25px;}
+            .visual .inner .textBox .subTitle {font-size:25px;margin:0 0 30px;}
+            .visual .inner .textBox {padding-left:5px;}
+            .visual .inner .textBox .text {width:50%;}
+            .visual .inner .aniBox {width:300px;height: 300px;margin-top: 460px;bottom: -20%;}
+            .work ul li {width: 100%;margin-top: 0;margin-bottom: 30px;}
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <section class="visual en animate" data-animate="motion">
+            <div class="inner">
+                <div class="textBox">
+                    <p class="title">My <span class="en2">Work</span></p>
+                    <p class="subTitle">
+                            Each solution relies on a dynamic approach between experimentation, technology and creativity in which
+                        the right emotional drive allows the achievement of the goal.
+                    </p>
+                    <p class="text">
+                        Through an extremely functional design, attentive to usability and ease of browsing we make every user 
+                        of our projects live a unique and innovative experience  
+                    </p>
+                </div>
+                <div class="aniBox">
+                    <img src="/images/나혼자 만레벨업.png" class="spin">
+                    <img src="/images/netmarble_positive.png" class="arrow">
+                </div>
+            </div>
+        </section>
+        <section class="work">
+            <div class="counter en">
+                <span class="now"></span>
+                <span class="all en2">/ 6</span>
+            </div>
+            <ul>
+                <li>
+                    <a href="#">
+                        <div class="num" data-text="1"></div>
+                        <div class="imgBox">
+                            <img src="/0322SAVE-main/images/레이븐2.jpeg">
+                            
+                        </div>
+                        <div class="textBox">
+                            <p class="title">Site name</p>
+                            <p class="text en2">UI/UX Design, Web Publising</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="num" data-text="2"></div>
+                        <div class="imgBox">
+                            <img src="/0322SAVE-main/images/마구마구.png">
+                            
+                        </div>
+                        <div class="textBox">
+                            <p class="title">Site name</p>
+                            <p class="text en2">UI/UX Design, Web Publising</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="num" data-text="3"></div>
+                        <div class="imgBox">
+                            <img src="/0322SAVE-main/images/레이븐2.jpeg">
+                            
+                        </div>
+                        <div class="textBox">
+                            <p class="title">Site name</p>
+                            <p class="text en2">UI/UX Design, Web Publising</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="num" data-text="4"></div>
+                        <div class="imgBox">
+                            <img src="/0322SAVE-main/images/마구마구.png">
+                            
+                        </div>
+                        <div class="textBox">
+                            <p class="title">Site name</p>
+                            <p class="text en2">UI/UX Design, Web Publising</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="num" data-text="5"></div>
+                        <div class="imgBox">
+                            <img src="/0322SAVE-main/images/레이븐2.jpeg">
+                            
+                        </div>
+                        <div class="textBox">
+                            <p class="title">Site name</p>
+                            <p class="text en2">UI/UX Design, Web Publising</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="num" data-text="6"></div>
+                        <div class="imgBox">
+                            <img src="/0322SAVE-main/images/마구마구.png">
+                            
+                        </div>
+                        <div class="textBox">
+                            <p class="title">Site name</p>
+                            <p class="text en2">UI/UX Design, Web Publising</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <section class="con03">
+            <h2>Thank you</h2>
+        </section>
+    </div>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/scrolla.jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+    <script>
+        $(function(){
+            $('.animate').scrolla({
+                mobile : true,
+                once : false
+            })
+
+            gsap.registerPlugin(ScrollTrigger);
+
+        ScrollTrigger.matchMedia({
+            '(min-width:1024px)':function(){ // 반응형
+                let list = gsap.utils.toArray('.work ul li');
+                let scrollTween = gsap.to(list, {
+                    xPercent: -100 * (list.length - 1), // 원래 리스트의 개수보다 1을 빼서 길이를 구한후에 가로로 이동
+                    ease:'none',
+                    scrollTrigger : {
+                        trigger:'.work',
+                        pin:true,
+                        scrub:1,
+                        start:'center center',
+                        end:'300%', // 뷰포트 높이의 300% -> 숫자가 클수록 느려짐
+                        //markers : true
+                    }
+                });
+
+                gsap.utils.toArray('.imgBox').forEach(imgBox => {
+                    gsap.timeline({
+                        scrollTrigger : {
+                            trigger : imgBox,
+                            containerAnimation: scrollTween, // 가로스크롤에서 trigger시점을 잡아주는 필수 옵션 :: list의 길이를 구해서 가로로 이동하는 값과 .work의 영역을 가지는 scrollTween 
+                            start : 'center right', // 가로스크롤 오른쪽이 bottom
+                            end : 'center center',
+                            scrub: true,
+                            //markers:true
+                        }
+                    })
+                    .to(imgBox, {'clip-path':'inset(0%)',ease:'none', duration:'1'},0);
+
+                    gsap.timeline({
+                        scrollTrigger : {
+                            trigger : imgBox,
+                            containerAnimation: scrollTween,
+                            start : 'center center',
+                            end : 'center left',
+                            scrub: true,
+                            //markers:true
+                        }
+                    })
+                    .to(imgBox, {'clip-path':'inset(30%)',ease:'none', duration:'1'},0)
+
+                });
+
+                gsap.utils.toArray('.work ul li .textBox').forEach(textBox => {
+                    gsap.timeline({
+                        scrollTrigger : {
+                            trigger : textBox,
+                            containerAnimation: scrollTween, 
+                            start : 'center 70%',
+                            end : 'center 40%',
+                            scrub: true,
+                            //markers:true
+                        }
+                    })
+                    .to(textBox, {'opacity':'1','x':'-100'},0);
+
+                    gsap.timeline({
+                        scrollTrigger : {
+                            trigger : textBox,
+                            containerAnimation: scrollTween,
+                            start : 'center 30%',
+                            end : 'center 20%',
+                            scrub: true,
+                            //markers:true
+                        }
+                    })
+                    .to(textBox, {'opacity':'0'},0);
+
+                    
+
+                    gsap.utils.toArray('.num').forEach(function(text){
+                        let num =text.getAttribute('data-text');
+                        let counter = document.querySelector('.counter .now');
+
+                        ScrollTrigger.create({
+                            trigger:text,
+                            start:'0% center',
+                            end :'100% center',
+                            scrub:true,
+                            containerAnimation:scrollTween,
+                            onEnter : self => {counter.innerText = num;console.log(self);}, //스크롤의 위치가 start를 지나 앞으로 이동할때 self : window 자신
+                            onEnterBack : () => counter.innerText = num, //스크롤의 위치가 end를 지나 뒤로 이동할때 self : window 자신
+                            // markers:true
+                        })
+                    })
+
+                });
+
+
+
+                
+            }
+        })
+
+
+        });
+        
+
+        
+    </script>
+</body>
+</html>

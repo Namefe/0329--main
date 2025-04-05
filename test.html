@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.playlist-stickerWrapper{
+  height: 700vh;
+}
+.playlist-scrollArea{
+  position: sticky;
+  top: 0px;
+  max-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.playliststicker-wrapper{
+  display: block;
+  min-width: 50vw;
+  height: 100vh;
+  margin-top:20px;
+}
+.playliststicker-container{
+  display: flex;
+}
+.br{
+  outline: solid;
+}
+
+
+p{
+  font-size: 10em;
+  text-align: center;
+}
+    </style>
+</head>
+<body>
+  <div style="height: 100vh; width: 100vw;" class="br">
+    <p> Play List </p>
+  </div> <!--Just extra div for scrolling space-->
+  
+  
+    <div class="playlist-stickerWrapper">
+      <div class="playlist-scrollArea">
+        <div class="playliststicker-container"> 
+          <div class="playliststicker-wrapper">
+            <img src="/images/레이븐2.jpeg"/>
+          </div>
+          <div class="playliststicker-wrapper">
+            <img src="/images/RF온라인넥스트.png"/>
+          </div>
+          <div class="playliststicker-wrapper">
+            <img src="/images/레이븐2.jpeg"/>
+          </div>
+          <div class="playliststicker-wrapper">
+            <img src="/images/아스달연대기.jpeg"/>
+          </div>
+          <div class="playliststicker-wrapper">
+            <img src="/images/세븐나이츠키우기.jpeg"/>
+          </div>
+          <div class="playliststicker-wrapper">
+            <img src="/images/스페셜포스.png"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>끝!</div> <!--Extra Scroll Space-->
+    <script>
+      document.addEventListener('scroll', horizontalScroll);
+
+//Selecting Elements
+let playlistScrollArea = document.querySelector('.playlist-scrollArea');
+let playlistStickerWrapper = document.querySelector('.playlist-stickerWrapper');
+
+let scrollWidth = playlistScrollArea.scrollWidth;
+let verticalScrollHeight = playlistStickerWrapper.getBoundingClientRect().height-playlistScrollArea.getBoundingClientRect().height;
+
+//Scroll function 
+function horizontalScroll(){
+
+    //Checking whether the sticky element has entered into view or not
+    let stickyPosition = playlistScrollArea.getBoundingClientRect().top;
+    if(stickyPosition > 1){
+        return;
+    }else{
+        let scrolled = playlistStickerWrapper.getBoundingClientRect().top; //how much is scrolled?
+        playlistScrollArea.scrollLeft =(scrollWidth/verticalScrollHeight)*(-scrolled)*0.85;
+    
+    }
+}
+    </script>
+</body>
+</html>

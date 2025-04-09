@@ -71,22 +71,14 @@ document.getElementById("btn1").addEventListener("click", function () {
   box[4].style.backgroundColor = 'rgb(224, 245, 146)'
 
 
-  let playlistScrollArea = document.querySelector('.playlist-scrollArea');
-let playlistStickerWrapper = document.querySelector('.playlist-stickerWrapper');
-
-let scrollWidth = playlistScrollArea.scrollWidth;
-let verticalScrollHeight = playlistStickerWrapper.getBoundingClientRect().height-playlistScrollArea.getBoundingClientRect().height;
-
-document.addEventListener('scroll', horizontalScroll);
-function horizontalScroll(){
 
 
-    let stickyPosition = playlistScrollArea.getBoundingClientRect().top;
-    if(stickyPosition > 1){
-        return;
-    }else{
-        let scrolled = playlistStickerWrapper.getBoundingClientRect().top; //how much is scrolled?
-        playlistScrollArea.scrollLeft =(scrollWidth/verticalScrollHeight)*(-scrolled)*0.85;
-    
+
+  const scrollArea = document.querySelector('.playlist-stickerWrapper');
+
+  scrollArea.addEventListener('wheel', (e) => {
+    if (scrollArea.matches(':hover')) {
+      e.preventDefault();
+      scrollArea.scrollLeft += e.deltaY;
     }
-}
+  }, { passive: false });

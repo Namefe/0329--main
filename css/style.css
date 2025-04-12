@@ -706,19 +706,19 @@ font-weight: 900;
     transition: 1s;
 }
 .poster1 img:hover{
-    transform: scale(1.2);
+    transform: scale(1.1);
     transition: 1s;
 }
 .poster2 img:hover{
-    transform: scale(1.2);
+    transform: scale(1.1);
     transition: 1s;
 }
 .poster4 img:hover{
-    transform: scale(1.2);
+    transform: scale(1.1);
     transition: 1s;
 }
 .poster3 img:hover{
-    transform: scale(1.2);
+    transform: scale(1.1);
     transition: 1s;
 }
 .poster2{
@@ -748,6 +748,7 @@ font-weight: 900;
    left:50%;
    transform: translateX(-50%);
    overflow: hidden;
+   height: 540px;
 }
 .poster3 a{
     z-index: 10;

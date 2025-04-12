@@ -1,3 +1,5 @@
+// https://www.fredpizza.co.kr/
+
 const banner = document.querySelectorAll('.banner'); 
 const speed = 1;
 

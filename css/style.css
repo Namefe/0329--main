@@ -4,6 +4,9 @@ body{
     font-family: sans-serif;
     font-family: 'Noto Sans KR', sans-serif;
 }
+html body{
+    max-width: 100%;
+}
 header{
     overflow-x: hidden;
 }
@@ -32,6 +35,15 @@ header{
     text-align: center;
     top:10px;
     display: flex;
+    animation:bannermove forwards infinite linear 20s
+}
+@keyframes bannermove{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-50%);
+    }
 }
 .hidden{
     font-weight: 700;
@@ -889,6 +901,7 @@ margin-right:100px;
 }
 /*------------------------------------------------- 반응형 CSS ----------------------------------------------*/
 @media(max-width:650px){
+
     .banner{
         width:230px;
     }
@@ -987,9 +1000,9 @@ left:200px;
     padding: 0 5.55vw;
 }
 .poster1{
-    align-self: flex-start;
-    margin-top:20px;
-    left:5px;
+    position: absolute;
+    top:300px;
+    left:50px;
 }
 .poster1 img{
     width:200px;
@@ -1000,8 +1013,8 @@ left:200px;
     height:150px;
 }
 .poster4 img{
-    width:200px;
-    height:150px;
+    width:120px;
+    height:210px;
 }
 .poster2{
     align-self: flex-end;
@@ -1015,8 +1028,9 @@ left:200px;
 }
 .poster4 a span{
     position: absolute;
-    bottom:-50px;
+    bottom:-70px;
     left:0;
+    width:200px;
 }
 .poster3{
     order:4;
@@ -1129,6 +1143,7 @@ height:1000px;
 }
 .mobile{
     display: block;
+    overflow: hidden;
 }
 .playlisttitle2{
     color:white;
@@ -1150,11 +1165,12 @@ height:1000px;
     .poster4{
         position: absolute;
         top:300px;
+        left:60%
     }
     .poster2{
         position: absolute;
         top:60px;
-        left:320px;
+        left:250px;
     }
     .poster2 img{
         display: block;
@@ -1196,12 +1212,12 @@ height:1000px;
     }
     .poster4{
         position: relative;
-        top:200px;
-        left:600px;
+        top:150px;
+        left:70%;
     }
     .poster4 img{
-        width:300px;
-        height:200px;
+        width:180px;
+        height:300px;
     }
     .poster3 img{
         width:100%;
@@ -1248,31 +1264,36 @@ height:1000px;
     .playlist-container{
         position: relative;
         height: 1000px;
+        width:100%
     }
     .playlist-routecontainer{
-        position: relative;
+        position: absolute;
+        top:10%;
+        left:67%;
+        overflow: hidden;
+        
     }
     .playlisttitle1{
         scale:0.8;
-        margin-top:50px;
-        margin-left: 200px;
+        position: absolute;
+        right: 50px;
     }
     .playlisttitle2{
         color: #fff;
         position: absolute;
         top:600px;
-        left:600px;
+        width: 220px;
     }
     .playlist-title{
         position: relative;
-        width:1000px;
+        width:100%;
     }
     .playlist-image{
         scale: 1.5;
+        left: 200px;
     }
     .playliststicker-container{
         position: relative;
-        top:-200px
     }
     .route-button{
         position: absolute;
@@ -1282,6 +1303,9 @@ height:1000px;
     .playlist-buttonborder{
         bottom:410px;
         left:250px;
+    }
+    #playlist .playlist-scrollArea{
+        bottom:0;
     }
     .playlist-stickerWrapper{
         width:100%;
@@ -1301,12 +1325,12 @@ height:1000px;
         height:200px;
     }
     .poster4 img{
-        width:300px;
-        height:200px;
+        width:180px;
+        height:300px;
     }
     .poster4 span{
         position: absolute;
-        top:210px;
+        top:310px;
         left:0;
     }
 }
@@ -1345,6 +1369,7 @@ height:1000px;
     }
     .playlist-routecontainer{
         position: relative;
+        left:-30px
     }
     .playlisttitle1{
         scale:0.8;
@@ -1408,6 +1433,7 @@ height:1000px;
     }
     .playlist-routecontainer{
         position: relative;
+        left:-20px;
     }
     .playlisttitle1{
         scale:0.8;

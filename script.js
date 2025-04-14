@@ -1,20 +1,6 @@
 // https://www.fredpizza.co.kr/
 
-const banner = document.querySelectorAll('.banner'); 
-const speed = 1;
 
-banner.forEach((img, index) => {
-    let position = index * 150; 
-    function moveImage() {
-        position += speed;
-        if (position > window.innerWidth) {
-            position = -650; 
-        }
-        img.style.left = position + 'px';
-        requestAnimationFrame(moveImage);
-    }
-    moveImage(); 
-});
 
 
 
@@ -74,13 +60,14 @@ document.getElementById("btn1").addEventListener("click", function () {
 
 
 
+  const element = document.querySelector(".playlist-stickerWrapper");
 
-
-  const scrollArea = document.querySelector('.playlist-stickerWrapper');
-
-  scrollArea.addEventListener('wheel', (e) => {
-    if (scrollArea.matches(':hover')) {
-      e.preventDefault();
-      scrollArea.scrollLeft += e.deltaY;
-    }
-  }, { passive: false });
+  element.addEventListener('wheel', (event) => {
+    event.preventDefault();
+  
+    element.scrollBy({
+      left: event.deltaY < 0 ? -50 : 50,
+      
+    });
+  });
+  

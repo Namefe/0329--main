@@ -486,20 +486,20 @@ font-weight: 900;
     background-image: url(https://ncm-static.nexon.com/_next/static/media/intro-background-web.a051d03c.svg);
     background-size: cover;
     height:auto;
-
 }
+
 
 .playlistwrapper{
     display: flex;
     width:100%;
-    height:1100px;
+    height:3000px;
     position: relative;
 }
 .route-button{
     position: absolute;
     display: inline-block;
-    top:79%;
-    left:40%;
+    top:51%;
+    left:42%;
 }
 .playlist-container{
     position: absolute;
@@ -513,6 +513,8 @@ font-weight: 900;
 #playlist .playlisttitle1{
     width:800px;
     margin-left:100px;
+    position: sticky;
+    top: 0;
 }
 #playlist .playlisttitle2{
    line-height: 1.69;
@@ -524,27 +526,28 @@ font-weight: 900;
    transform:translateY(-17px);
 }
 #playlist .playliststicker-container{
+    position: relative;
     display: flex;
     padding: 20px;
     gap: 250px;
     margin-top: 400px;
-    width: max-content;
+    transition: transform 0.5s ease-out;
 }
 .playlist-image{
     margin-top:300px;
-    margin-left:20px;
 }
 #playlist .playliststicker-wrapper{
     width:300px;
     height: 300px;
-    transform: none;
+    flex: 0 0 auto; /* flex item이 가로로 배치되도록 설정 */
+    position: relative;
+    transform: translateY(2200px);
 }
 
 #playlist .playlist-scrollArea{
     position: relative;
     white-space: nowrap;
     display: inline-flex;
-    bottom:-240px;
     width:max-content;
     gap: 250px;
 
@@ -628,6 +631,12 @@ font-weight: 900;
 .playlist-stickerWrapper{
     width:100%;
     overflow-x: auto;
+    overflow-y: hidden;
+    position: sticky;
+    top:0;
+    display: flex; /* 추가: 가로 스크롤을 위해 flex 사용 */
+    gap: 20px; /* 추가: 각 아이템 사이의 간격 */
+    scroll-behavior: smooth;
 }
 .playlist-stickerWrapper::-webkit-scrollbar {
     height: 4px;
@@ -1289,16 +1298,15 @@ height:1000px;
         width:100%;
     }
     .playlist-image{
-        scale: 1.5;
-        left: 200px;
+       display: none;
     }
     .playliststicker-container{
         position: relative;
     }
     .route-button{
         position: absolute;
-        top:69%;
-        left:60%;
+        top:40%;
+        left:52%;
     }
     .playlist-buttonborder{
         bottom:410px;
@@ -1333,6 +1341,9 @@ height:1000px;
         top:310px;
         left:0;
     }
+    #playlist .playlisttitle1{
+        margin-left:10px;
+    }
 }
 @media(min-width:1200px) and (max-width:1499px){
     .banner{
@@ -1361,7 +1372,7 @@ height:1000px;
         left:320px;
     }
     .playlist-image{
-        scale:1;
+       display: none;
     }
     .playlist-buttonborder{
         bottom:410px;
@@ -1387,11 +1398,6 @@ height:1000px;
         width:1000px;
     }
 
-    .playliststicker-container{
-        position: absolute;
-        top:0;
-        left:0;
-    }
     .route-button{
         position: absolute;
         top:74%;
@@ -1425,7 +1431,7 @@ height:1000px;
         left:320px;
     }
     .playlist-image{
-        scale:1;
+        display: none;
     }
     .playlist-buttonborder{
         bottom:410px;
@@ -1451,11 +1457,7 @@ height:1000px;
         width:1000px;
     }
 
-    .playliststicker-container{
-        position: absolute;
-        top:0;
-        left:0;
-    }
+
     .route-button{
         position: absolute;
         top:80%;

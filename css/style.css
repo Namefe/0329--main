@@ -592,19 +592,8 @@ font-weight: 900;
   display: flex;
   gap: 20px;
   scroll-behavior: smooth;
-
   position: absolute;
   bottom: 0;
-}
-
-/* 스크롤바 스타일 */
-.playlist-stickerWrapper::-webkit-scrollbar {
-  height: 4px;
-}
-
-.playlist-stickerWrapper::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 4px;
 }
 
 /* 기타 버튼 영역 */

@@ -57,57 +57,57 @@ document.getElementById("btn1").addEventListener("click", function () {
   box[3].style.backgroundColor = 'rgb(247, 247, 247)'
   box[4].style.backgroundColor = 'rgb(224, 245, 146)'
 
-  document.addEventListener('DOMContentLoaded', function () {
-    const wrappers = document.querySelectorAll('.playlist-stickerWrapper');
+  // document.addEventListener('DOMContentLoaded', function () {
+  //   const wrappers = document.querySelectorAll('.playlist-stickerWrapper');
 
-    wrappers.forEach(wrapper => {
-      const scrollWidth = wrapper.scrollWidth - window.innerWidth;
-      const maxScrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+  //   wrappers.forEach(wrapper => {
+  //     const scrollWidth = wrapper.scrollWidth - window.innerWidth;
+  //     const maxScrollHeight = document.documentElement.scrollHeight - window.innerHeight;
 
-      let currentScroll = 0;
-      let targetScroll = 0;
+  //     let currentScroll = 0;
+  //     let targetScroll = 0;
 
-      function clamp(val, min, max) {
-        return Math.max(min, Math.min(val, max));
-      }
+  //     function clamp(val, min, max) {
+  //       return Math.max(min, Math.min(val, max));
+  //     }
 
-      function animateScroll() {
-        currentScroll += (targetScroll - currentScroll) * 0.1;
-        wrapper.scrollLeft = currentScroll;
-        requestAnimationFrame(animateScroll);
-      }
+  //     function animateScroll() {
+  //       currentScroll += (targetScroll - currentScroll) * 0.1;
+  //       wrapper.scrollLeft = currentScroll;
+  //       requestAnimationFrame(animateScroll);
+  //     }
 
-      animateScroll();
+  //     animateScroll();
 
-      function handleScroll(event) {
-        const rect = wrapper.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+  //     function handleScroll(event) {
+  //       const rect = wrapper.getBoundingClientRect();
+  //       const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
 
-        if (!isVisible) return;
-        event.preventDefault();
+  //       if (!isVisible) return;
+  //       event.preventDefault();
 
-        const scrollY = window.scrollY;
-        const ratio = clamp(scrollY / maxScrollHeight, 0, 1);
-        targetScroll = scrollWidth * ratio;
-      }
+  //       const scrollY = window.scrollY;
+  //       const ratio = clamp(scrollY / maxScrollHeight, 0, 1);
+  //       targetScroll = scrollWidth * ratio;
+  //     }
 
-      document.addEventListener('scroll', handleScroll, { passive: false });
+  //     document.addEventListener('scroll', handleScroll, { passive: false });
 
-      wrapper.addEventListener('wheel', function (e) {
-        const rect = wrapper.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+  //     wrapper.addEventListener('wheel', function (e) {
+  //       const rect = wrapper.getBoundingClientRect();
+  //       const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
 
-        if (!isVisible) return;
+  //       if (!isVisible) return;
 
-        const maxScrollLeft = wrapper.scrollWidth - wrapper.clientWidth;
-        const isAtStart = wrapper.scrollLeft <= 0 && e.deltaY < 0;
-        const isAtEnd = wrapper.scrollLeft >= maxScrollLeft && e.deltaY > 0;
+  //       const maxScrollLeft = wrapper.scrollWidth - wrapper.clientWidth;
+  //       const isAtStart = wrapper.scrollLeft <= 0 && e.deltaY < 0;
+  //       const isAtEnd = wrapper.scrollLeft >= maxScrollLeft && e.deltaY > 0;
 
-        if (!isAtStart && !isAtEnd) {
-          e.preventDefault();
-          targetScroll += e.deltaY;
-          targetScroll = clamp(targetScroll, 0, maxScrollLeft);
-        }
-      }, { passive: false });
-    });
-  });
+  //       if (!isAtStart && !isAtEnd) {
+  //         e.preventDefault();
+  //         targetScroll += e.deltaY;
+  //         targetScroll = clamp(targetScroll, 0, maxScrollLeft);
+  //       }
+  //     }, { passive: false });
+  //   });
+  // });

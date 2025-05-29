@@ -476,177 +476,159 @@ font-weight: 900;
   }
 
 /*------------------------------- Section3 시작   ---------------------------------------------*/
-.pc{
-    background-image: url(https://ncm-static.nexon.com/_next/static/media/intro-background-web.a051d03c.svg);
-    background-size: cover;
-    height:auto;
-}
-.mobile{
-    position: relative;
-    background-image: url(https://ncm-static.nexon.com/_next/static/media/intro-background-web.a051d03c.svg);
-    background-size: cover;
-    height:auto;
+/* 배경 및 상단 구조 */
+.pc, .mobile {
+  background-image: url(https://ncm-static.nexon.com/_next/static/media/intro-background-web.a051d03c.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: auto;
+  position: relative;
 }
 
-
-.playlistwrapper{
-    display: flex;
-    width:100%;
-    height:3000px;
-    position: relative;
-}
-.route-button{
-    position: absolute;
-    display: inline-block;
-    top:51%;
-    left:42%;
-}
-.playlist-container{
-    position: absolute;
-    display: flex;
-    height:100%;
-    margin-top: 100px;
-}
-#playlist .playlist-title{
-    position: relative;
-}
-#playlist .playlisttitle1{
-    width:800px;
-    margin-left:100px;
-    position: sticky;
-    top: 0;
-}
-#playlist .playlisttitle2{
-   line-height: 1.69;
-   position: absolute;
-   right:0;
-   top:160px;
-   letter-spacing: -.61px;
-   color:#d8d8d8;
-   transform:translateY(-17px);
-}
-#playlist .playliststicker-container{
-    position: relative;
-    display: flex;
-    padding: 20px;
-    gap: 250px;
-    margin-top: 400px;
-    transition: transform 0.5s ease-out;
-}
-.playlist-image{
-    margin-top:300px;
-}
-#playlist .playliststicker-wrapper{
-    width:300px;
-    height: 300px;
-    flex: 0 0 auto; /* flex item이 가로로 배치되도록 설정 */
-    position: relative;
-    transform: translateY(2200px);
+/* 전체 wrapper 영역 (스크롤 공간 확보) */
+.playlistwrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 3000px; /* 수직 스크롤 확보 */
+  position: relative;
 }
 
-#playlist .playlist-scrollArea{
-    position: relative;
-    white-space: nowrap;
-    display: inline-flex;
-    width:max-content;
-    gap: 250px;
+/* 루트 버튼 위치 */
+.route-button {
+  position: absolute;
+  display: inline-block;
+  top: 51%;
+  left: 42%;
+}
 
+/* 좌측 제목 + 우측 이미지 포함 영역 */
+.playlist-container {
+  position: absolute;
+  display: flex;
+  height: 100%;
+  margin-top: 100px;
 }
-.playliststicker-wrapper .img1{
-    transform: rotate(30deg);
 
+/* 좌측 제목 svg */
+#playlist .playlist-title {
+  position: relative;
 }
-.playliststicker-wrapper .img1:hover{
-    transition:all 2s ease-in-out;
-    transform:rotate(360deg)
-}
-.playliststicker-wrapper .img2{
-    transform: rotate(-30deg);
-   
-}
-.playliststicker-wrapper .img2:hover{
-    transition:all 2s ease-in-out;
-    transform:rotate(360deg)
-}
-.playliststicker-wrapper .img3{
-    transform: rotate(30deg);
 
+#playlist .playlisttitle1 {
+  width: 800px;
+  margin-left: 100px;
+  position: sticky;
+  top: 0;
 }
-.playliststicker-wrapper .img3:hover{
-    transition:all 2s ease-in-out;
-    transform:rotate(360deg)
-}
-.playliststicker-wrapper .img4{
-    transform: rotate(-30deg);
 
+#playlist .playlisttitle2 {
+  line-height: 1.69;
+  position: absolute;
+  right: 0;
+  top: 160px;
+  letter-spacing: -0.61px;
+  color: #d8d8d8;
+  transform: translateY(-17px);
 }
-.playliststicker-wrapper .img4:hover{
-    transition:all 2s ease-in-out;
-    transform:rotate(360deg)
-}
-.playliststicker-wrapper .img5{
-    transform: rotate(30deg);
 
+/* 수평 스크롤 내부 */
+#playlist .playlist-scrollArea {
+  position: relative;
+  display: inline-flex;
+  width: max-content;
+  height: auto;
+  gap: 250px;
+  overflow: visible; /* 스크롤 막지 않게 */
 }
-.playliststicker-wrapper .img5:hover{
-    transition:all 2s ease-in-out;
-    transform:rotate(360deg)
-}
-.playliststicker-wrapper .img6{
-    transform: rotate(-30deg);
 
+/* 이미지 리스트 전체 묶음 */
+#playlist .playliststicker-container {
+  display: flex;
+  position: relative;
+  padding: 20px;
+  gap: 250px;
+  margin-top: 400px;
+  transition: transform 0.5s ease-out;
 }
-.playliststicker-wrapper .img6:hover{
-    transition:all 2s ease-in-out;
-    transform:rotate(360deg)
+
+/* 개별 이미지 wrapper */
+#playlist .playliststicker-wrapper {
+  width: 300px;
+  height: 300px;
+  flex: 0 0 auto;
+  position: relative;
 }
-.playlist-buttonborder{
-    width:300px;
-    height:100px;
-    background-image:url(https://ncm-static.nexon.com/_next/static/media/button-playlist-route.c91ac529.svg);
-    background-repeat: no-repeat;
-}
-.playlist-buttontext{
-    font-weight: 600;
-    font-size: 18px;
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-100%,-80%);
-}
-.buttonsticker{
-    position: relative;
-    top:800px;
-    left:750px;
-}
+
+/* 이미지 자체 회전 효과 */
 .playliststicker-wrapper img {
-    width: 100%;
-    height: auto;
-    transition: transform 1s;
-    transform: none;
+  width: 100%;
+  height: auto;
+  transition: transform 1s;
 }
+
+.playliststicker-wrapper .img1 { transform: rotate(30deg); }
+.playliststicker-wrapper .img2 { transform: rotate(-30deg); }
+.playliststicker-wrapper .img3 { transform: rotate(30deg); }
+.playliststicker-wrapper .img4 { transform: rotate(-30deg); }
+.playliststicker-wrapper .img5 { transform: rotate(30deg); }
+.playliststicker-wrapper .img6 { transform: rotate(-30deg); }
+
+.playliststicker-wrapper .img1:hover,
+.playliststicker-wrapper .img2:hover,
+.playliststicker-wrapper .img3:hover,
+.playliststicker-wrapper .img4:hover,
+.playliststicker-wrapper .img5:hover,
+.playliststicker-wrapper .img6:hover,
 .playliststicker-wrapper img:hover {
-    transform: rotate(360deg);
+  transform: rotate(360deg);
+  transition: all 2s ease-in-out;
 }
-.playlist-stickerWrapper{
-    width:100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    position: sticky;
-    top:0;
-    display: flex; /* 추가: 가로 스크롤을 위해 flex 사용 */
-    gap: 20px; /* 추가: 각 아이템 사이의 간격 */
-    scroll-behavior: smooth;
+
+.playlist-stickerWrapper {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  gap: 20px;
+  scroll-behavior: smooth;
+
+  position: absolute;
+  bottom: 0;
 }
+
+/* 스크롤바 스타일 */
 .playlist-stickerWrapper::-webkit-scrollbar {
-    height: 4px;
-  }
-  
-  .playlist-stickerWrapper::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 4px;
-  }
-  
+  height: 4px;
+}
+
+.playlist-stickerWrapper::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+/* 기타 버튼 영역 */
+.playlist-buttonborder {
+  width: 300px;
+  height: 100px;
+  background-image: url(https://ncm-static.nexon.com/_next/static/media/button-playlist-route.c91ac529.svg);
+  background-repeat: no-repeat;
+}
+
+.playlist-buttontext {
+  font-weight: 600;
+  font-size: 18px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-100%, -80%);
+}
+
+.buttonsticker {
+  position: relative;
+  top: 800px;
+  left: 750px;
+}
 
 
 /*--------------   Section4 시작        ---------------------------------------*/

@@ -57,52 +57,57 @@ document.getElementById("btn1").addEventListener("click", function () {
   box[3].style.backgroundColor = 'rgb(247, 247, 247)'
   box[4].style.backgroundColor = 'rgb(224, 245, 146)'
 
-  window.addEventListener('load', () => {
-    const horizontalArea = document.querySelector('.playlist-stickerWrapper');
-    horizontalArea.scrollLeft = 0;
-  });
+  document.addEventListener('DOMContentLoaded', function () {
+    const wrappers = document.querySelectorAll('.playlist-stickerWrapper');
 
-  document.addEventListener('scroll', horizontalScroll, { passive: false });
+    wrappers.forEach(wrapper => {
+      const scrollWidth = wrapper.scrollWidth - window.innerWidth;
+      const maxScrollHeight = document.documentElement.scrollHeight - window.innerHeight;
 
-  let playlistStickerWrapper = document.querySelector('.playlist-stickerWrapper');
-  
-  // 전체 콘텐츠 너비에서 창 너비를 뺀 값으로 스크롤 가능한 전체 너비 계산
-  let scrollWidth = playlistStickerWrapper.scrollWidth - window.innerWidth;
-  
-  // 최대 스크롤 높이
-  const maxScrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-  
-  function horizontalScroll(event) {
-      event.preventDefault();  // 기본 스크롤 동작을 막음
-  
-      // 현재 수직 스크롤 위치
-      let scrolled = window.scrollY;
-  
-      // 수평 스크롤로 변환 (scrollWidth * 비율)
-      let scrollRatio = scrolled / maxScrollHeight;
-      let translateX = scrollWidth * scrollRatio;
-  
-      // 수평 스크롤 위치 설정
-      playlistStickerWrapper.scrollLeft = translateX;
+      let currentScroll = 0;
+      let targetScroll = 0;
 
-    }
-
-    const horizontalArea = document.querySelector('.playlist-stickerWrapper');
-
-    horizontalArea.addEventListener('wheel', function (e) {
-      const rect = horizontalArea.getBoundingClientRect();
-      const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
-    
-      // 스크롤 정보
-      const scrollLeft = horizontalArea.scrollLeft;
-      const maxScrollLeft = horizontalArea.scrollWidth - horizontalArea.clientWidth;
-    
-      // 수평 스크롤이 끝났을 경우 → 수직 스크롤 허용
-      const isAtStart = scrollLeft <= 0 && e.deltaY < 0;
-      const isAtEnd = scrollLeft >= maxScrollLeft && e.deltaY > 0;
-    
-      if (isInViewport && !isAtStart && !isAtEnd) {
-        e.preventDefault();
-        horizontalArea.scrollLeft += e.deltaY;
+      function clamp(val, min, max) {
+        return Math.max(min, Math.min(val, max));
       }
-    }, { passive: false });
+
+      function animateScroll() {
+        currentScroll += (targetScroll - currentScroll) * 0.1;
+        wrapper.scrollLeft = currentScroll;
+        requestAnimationFrame(animateScroll);
+      }
+
+      animateScroll();
+
+      function handleScroll(event) {
+        const rect = wrapper.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+        if (!isVisible) return;
+        event.preventDefault();
+
+        const scrollY = window.scrollY;
+        const ratio = clamp(scrollY / maxScrollHeight, 0, 1);
+        targetScroll = scrollWidth * ratio;
+      }
+
+      document.addEventListener('scroll', handleScroll, { passive: false });
+
+      wrapper.addEventListener('wheel', function (e) {
+        const rect = wrapper.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+        if (!isVisible) return;
+
+        const maxScrollLeft = wrapper.scrollWidth - wrapper.clientWidth;
+        const isAtStart = wrapper.scrollLeft <= 0 && e.deltaY < 0;
+        const isAtEnd = wrapper.scrollLeft >= maxScrollLeft && e.deltaY > 0;
+
+        if (!isAtStart && !isAtEnd) {
+          e.preventDefault();
+          targetScroll += e.deltaY;
+          targetScroll = clamp(targetScroll, 0, maxScrollLeft);
+        }
+      }, { passive: false });
+    });
+  });

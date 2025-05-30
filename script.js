@@ -57,57 +57,44 @@ document.getElementById("btn1").addEventListener("click", function () {
   box[3].style.backgroundColor = 'rgb(247, 247, 247)'
   box[4].style.backgroundColor = 'rgb(224, 245, 146)'
 
-  // document.addEventListener('DOMContentLoaded', function () {
-  //   const wrappers = document.querySelectorAll('.playlist-stickerWrapper');
+document.addEventListener('DOMContentLoaded', () => {
+  const wrappers = document.querySelectorAll('.playlist-stickerWrapper');
 
-  //   wrappers.forEach(wrapper => {
-  //     const scrollWidth = wrapper.scrollWidth - window.innerWidth;
-  //     const maxScrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+  wrappers.forEach(wrapper => {
+    let targetScroll = 0;
+    let currentScroll = 0;
 
-  //     let currentScroll = 0;
-  //     let targetScroll = 0;
+    // 최대 스크롤값 계산
+    const getMaxScroll = () => wrapper.scrollWidth - wrapper.clientWidth;
 
-  //     function clamp(val, min, max) {
-  //       return Math.max(min, Math.min(val, max));
-  //     }
+    // 부드러운 애니메이션
+    function smoothScroll() {
+      // 현재 위치와 목표 위치 차이가 작으면 종료
+      if (Math.abs(targetScroll - currentScroll) < 0.1) {
+        currentScroll = targetScroll;
+      } else {
+        currentScroll += (targetScroll - currentScroll) * 0.15;
+      }
 
-  //     function animateScroll() {
-  //       currentScroll += (targetScroll - currentScroll) * 0.1;
-  //       wrapper.scrollLeft = currentScroll;
-  //       requestAnimationFrame(animateScroll);
-  //     }
+      wrapper.scrollLeft = currentScroll;
+      requestAnimationFrame(smoothScroll);
+    }
 
-  //     animateScroll();
+    smoothScroll();
 
-  //     function handleScroll(event) {
-  //       const rect = wrapper.getBoundingClientRect();
-  //       const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+    // 휠로 가로 스크롤 제어
+    wrapper.addEventListener('wheel', (e) => {
+      const isHovered = wrapper.getBoundingClientRect().top < window.innerHeight;
 
-  //       if (!isVisible) return;
-  //       event.preventDefault();
+      if (!isHovered) return;
 
-  //       const scrollY = window.scrollY;
-  //       const ratio = clamp(scrollY / maxScrollHeight, 0, 1);
-  //       targetScroll = scrollWidth * ratio;
-  //     }
+      e.preventDefault();
 
-  //     document.addEventListener('scroll', handleScroll, { passive: false });
+      targetScroll += e.deltaY;
 
-  //     wrapper.addEventListener('wheel', function (e) {
-  //       const rect = wrapper.getBoundingClientRect();
-  //       const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-
-  //       if (!isVisible) return;
-
-  //       const maxScrollLeft = wrapper.scrollWidth - wrapper.clientWidth;
-  //       const isAtStart = wrapper.scrollLeft <= 0 && e.deltaY < 0;
-  //       const isAtEnd = wrapper.scrollLeft >= maxScrollLeft && e.deltaY > 0;
-
-  //       if (!isAtStart && !isAtEnd) {
-  //         e.preventDefault();
-  //         targetScroll += e.deltaY;
-  //         targetScroll = clamp(targetScroll, 0, maxScrollLeft);
-  //       }
-  //     }, { passive: false });
-  //   });
-  // });
+      // clamp를 매번 최신 maxScroll 기준으로 적용
+      const maxScroll = getMaxScroll();
+      targetScroll = Math.max(0, Math.min(targetScroll, maxScroll));
+    }, { passive: false });
+  });
+});

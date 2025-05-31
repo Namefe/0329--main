@@ -539,7 +539,7 @@ font-weight: 900;
   width: max-content;
   height: auto;
   gap: 250px;
-  overflow: visible; /* 스크롤 막지 않게 */
+  overflow: visible; 
 }
 
 /* 이미지 리스트 전체 묶음 */

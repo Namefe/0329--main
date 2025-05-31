@@ -66,29 +66,5 @@ p{
       </div>
     </div>
     <div>끝!</div> <!--Extra Scroll Space-->
-    <script>
-      document.addEventListener('scroll', horizontalScroll);
-
-//Selecting Elements
-let playlistScrollArea = document.querySelector('.playlist-scrollArea');
-let playlistStickerWrapper = document.querySelector('.playlist-stickerWrapper');
-
-let scrollWidth = playlistScrollArea.scrollWidth;
-let verticalScrollHeight = playlistStickerWrapper.getBoundingClientRect().height-playlistScrollArea.getBoundingClientRect().height;
-
-//Scroll function 
-function horizontalScroll(){
-
-    //Checking whether the sticky element has entered into view or not
-    let stickyPosition = playlistScrollArea.getBoundingClientRect().top;
-    if(stickyPosition > 1){
-        return;
-    }else{
-        let scrolled = playlistStickerWrapper.getBoundingClientRect().top; //how much is scrolled?
-        playlistScrollArea.scrollLeft =(scrollWidth/verticalScrollHeight)*(-scrolled)*0.85;
-    
-    }
-}
-    </script>
 </body>
 </html>

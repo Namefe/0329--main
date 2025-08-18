@@ -1,3 +1,5 @@
+html, body { overflow-x: hidden; }
+
 body{
     margin:0;
     padding:0;
@@ -166,27 +168,31 @@ button{
     background-repeat: no-repeat;
     background-position: 50%;
 }
-.headernavigation{
+.headernavigation {
     position: fixed;
     z-index: 3000;
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
-    display:none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
     overflow: auto;
     justify-content: space-between;
-    margin-top:52px;
+    margin-top: 52px;
     background-color: #282728;
     opacity: 1;
+
+    scrollbar-width: none;       
+    -ms-overflow-style: none;    
+}
+.headernavigation::-webkit-scrollbar {
+    display: none;             
 }
 .headermainlist{
     display: flex;
     flex-direction: column;
 }
-.headernavigationcontainer{
-    margin-left:70px;
-}
+
 .headermainmenu{
     display: flex;
     color:#fff;
@@ -477,6 +483,7 @@ font-weight: 900;
 
 /*------------------------------- Section3 시작   ---------------------------------------------*/
 /* 배경 및 상단 구조 */
+/* 페이지 배경 */
 .pc, .mobile {
   background-image: url(https://ncm-static.nexon.com/_next/static/media/intro-background-web.a051d03c.svg);
   background-size: cover;
@@ -485,35 +492,38 @@ font-weight: 900;
   position: relative;
 }
 
-/* 전체 wrapper 영역 (스크롤 공간 확보) */
+
+#playlist { position: relative; }
+
+
 .playlistwrapper {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 3000px; /* 수직 스크롤 확보 */
   position: relative;
+  height: 2000px; 
 }
 
-/* 루트 버튼 위치 */
 .route-button {
   position: absolute;
   display: inline-block;
   top: 51%;
   left: 42%;
+  z-index: 40;
 }
 
-/* 좌측 제목 + 우측 이미지 포함 영역 */
+
 .playlist-container {
   position: absolute;
   display: flex;
   height: 100%;
   margin-top: 100px;
+  z-index: 10;
+  pointer-events: none; 
 }
 
-/* 좌측 제목 svg */
-#playlist .playlist-title {
-  position: relative;
-}
+
+#playlist .playlist-title { position: relative; }
 
 #playlist .playlisttitle1 {
   width: 800px;
@@ -532,27 +542,39 @@ font-weight: 900;
   transform: translateY(-17px);
 }
 
-/* 수평 스크롤 내부 */
-#playlist .playlist-scrollArea {
-  position: relative;
-  display: inline-flex;
-  width: max-content;
-  height: auto;
-  gap: 250px;
-  overflow: visible; 
+
+.playlist-stickerWrapper {
+  position: absolute;
+  left: 0;
+  right:0;
+  bottom:0;   
+  height: 45vh;       
+  display: block;
+overflow: hidden;   
+  z-index: 30;
 }
 
-/* 이미지 리스트 전체 묶음 */
+
+#playlist .playlist-scrollArea {
+  position: relative;
+  display: flex;      
+  width: 100%;
+  height: 100%;
+  gap: 250px;
+  overflow: visible;   
+  will-change: transform;
+  transform: translate3d(0,0,0);
+
+}
+
 #playlist .playliststicker-container {
   display: flex;
   position: relative;
-  padding: 20px;
+  padding: 75px;
   gap: 250px;
-  margin-top: 400px;
-  transition: transform 0.5s ease-out;
+  margin-top: 0;        
 }
 
-/* 개별 이미지 wrapper */
 #playlist .playliststicker-wrapper {
   width: 300px;
   height: 300px;
@@ -560,11 +582,12 @@ font-weight: 900;
   position: relative;
 }
 
-/* 이미지 자체 회전 효과 */
 .playliststicker-wrapper img {
   width: 100%;
   height: auto;
   transition: transform 1s;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .playliststicker-wrapper .img1 { transform: rotate(30deg); }
@@ -585,17 +608,7 @@ font-weight: 900;
   transition: all 2s ease-in-out;
 }
 
-.playlist-stickerWrapper {
-  width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  display: flex;
-  gap: 20px;
-  scroll-behavior: smooth;
-  position: absolute;
-  bottom: 0;
-
-}
+.is-dragging .playliststicker-wrapper img { pointer-events: none; }
 
 /* 기타 버튼 영역 */
 .playlist-buttonborder {
@@ -619,6 +632,7 @@ font-weight: 900;
   top: 800px;
   left: 750px;
 }
+
 
 
 /*--------------   Section4 시작        ---------------------------------------*/
@@ -880,6 +894,8 @@ margin-right:100px;
 .inter:hover::after{
     transform:scaleX(1);
 }
+
+
 /*------------------------------------------------- 반응형 CSS ----------------------------------------------*/
 @media(max-width:650px){
 
@@ -974,7 +990,7 @@ left:200px;
     padding-top: 80px;
 }
 .inviteBackgroundText{
-    padding-top: 80px;
+    padding-top: 100px;
 }
 .RollingPoster{
     width:100vw;
@@ -982,7 +998,7 @@ left:200px;
 }
 .poster1{
     position: absolute;
-    top:300px;
+    top:800px;
     left:50px;
 }
 .poster1 img{
@@ -1000,12 +1016,12 @@ left:200px;
 .poster2{
     align-self: flex-end;
     order:3;
-    margin-top: 100px;
+    margin-top: 700px;
 }
 .poster4{
     align-self: flex-end;
     left:240px;
-    top:-200px;
+    top:200px;
 }
 .poster4 a span{
     position: absolute;
@@ -1081,7 +1097,9 @@ left:200px;
 }
 .playlist-stickerWrapper{
     width:100%;
-    margin-top: 800px;
+    margin-top: 100px;
+    pointer-events:none;
+    height:auto
 }
 .playlistwrapper{
     height:3000px;
@@ -1372,7 +1390,7 @@ height:1000px;
 
     .route-button{
         position: absolute;
-        top:74%;
+        top:50%;
         left:55%;
     }
 }
@@ -1432,7 +1450,7 @@ height:1000px;
 
     .route-button{
         position: absolute;
-        top:80%;
+        top:50%;
         left:53%;
     }
 

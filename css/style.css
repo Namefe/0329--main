@@ -489,7 +489,7 @@ font-weight: 900;
   background-image: url(https://ncm-static.nexon.com/_next/static/media/intro-background-web.a051d03c.svg);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 400vh;
+  height: 550vh;
   position: relative;
 }
 
@@ -505,7 +505,7 @@ font-weight: 900;
 .route-button {
   position: absolute;
   display: inline-block;
-  top: 51%;
+  top: 14%;
   left: 42%;
   z-index: 40;
 }
@@ -541,7 +541,7 @@ font-weight: 900;
 
 .playlist-stickerWrapper {  
  position: relative;
- height:240vh;
+ height:400vh;
 }
 
   .playlist-scrollArea{
@@ -605,7 +605,6 @@ font-weight: 900;
 
 .is-dragging .playliststicker-wrapper img { pointer-events: none; }
 
-/* 기타 버튼 영역 */
 .playlist-buttonborder {
   width: 300px;
   height: 100px;
@@ -1071,13 +1070,6 @@ left:200px;
     top:70px;  
     left:300px;
 }
-.playlist-buttonborder{
-    position: relative;
-    top:530px;
-    left:220px;
-    width:300px;
-    height:100px;
-}
 .playlisttitle1{
     position: sticky;
     top:70px;
@@ -1088,13 +1080,23 @@ left:200px;
 }
 #playlist .playliststicker-container{
     display: block;
-    width:100%;
+    width:100%;   
+}
+.playliststicker-container{
+    flex-direction: column;
+}
+.playlist-scrollArea{
+    height:300vh;
+    position: absolute;
+    top:-200px;
+    left:50%;
+    transform:translateX(-50%);
+    max-height: none;
 }
 .playlist-stickerWrapper{
     width:100%;
-    margin-top: 100px;
     pointer-events:none;
-    height:auto
+    height:500vh;
 }
 .playlistwrapper{
     height:3000px;
@@ -1109,8 +1111,8 @@ left:200px;
 }
 .route-button{
     position: absolute;
-    top:6%;
-    left:-18%;
+    top:20%;
+    left:30%;
 }
 
 .inviteWrapper{
@@ -1227,6 +1229,7 @@ height:1000px;
     }
     .pc{
         display:block;
+        height:500vh;
     }
     .mobile{
         display: none;
@@ -1302,9 +1305,9 @@ height:1000px;
     }
     .playlist-stickerWrapper{
         width:100%;
-        position: absolute;
-        bottom:0;
-        overflow-y: hidden;
+        position: sticky;
+        top: 0;
+        height:300vh;
     }
     .poster1{
         margin-left:50px;
@@ -1385,8 +1388,11 @@ height:1000px;
 
     .route-button{
         position: absolute;
-        top:50%;
+        top:20%;
         left:55%;
+    }
+    .playlist-stickerWrapper{
+        height:320vh;
     }
 }
 
@@ -1445,8 +1451,11 @@ height:1000px;
 
     .route-button{
         position: absolute;
-        top:50%;
+        top:30%;
         left:53%;
+    }
+        .playlist-stickerWrapper{
+        height:320vh;
     }
 
 }

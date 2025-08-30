@@ -547,7 +547,7 @@ font-weight: 900;
   .playlist-scrollArea{
     position: sticky;
     top: 20px;
-    height:50vh;
+    height:100vh;
     overflow-x: hidden;
     overflow-y: hidden;
     max-height: 100vh;
@@ -565,6 +565,9 @@ font-weight: 900;
     height:100%;
   }
   .playliststicker-container{ display:flex; height:100%; }
+  .playliststicker-wrapper > img {
+    width:80%;
+  }
   .playliststicker-wrapper .img1{
     position: absolute;
     top:150px;
@@ -590,12 +593,12 @@ font-weight: 900;
     top:150px;
   }
 
-.playliststicker-wrapper .img1 { transform: rotate(30deg); }
+/* .playliststicker-wrapper .img1 { transform: rotate(30deg); }
 .playliststicker-wrapper .img2 { transform: rotate(-30deg); }
 .playliststicker-wrapper .img3 { transform: rotate(30deg); }
 .playliststicker-wrapper .img4 { transform: rotate(-30deg); }
 .playliststicker-wrapper .img5 { transform: rotate(30deg); }
-.playliststicker-wrapper .img6 { transform: rotate(-30deg); }
+.playliststicker-wrapper .img6 { transform: rotate(-30deg); } */
 
 
 .playliststicker-wrapper img:hover {
